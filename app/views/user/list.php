@@ -5,8 +5,7 @@
 	</tr>
 	<?php foreach($vars['users'] as $user): ?>
 	<tr>
-		<td><?php echo $user['firstname']; ?></td>
-		<td><?php echo $user['lastname']; ?></td>
+            <td><?php echo $user['users']; ?></td>
 	</tr>	
 	<?php endforeach; ?>	
 </table>

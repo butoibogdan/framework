@@ -15,5 +15,5 @@ class UserModel extends Model{
 	// Get a list of users
 	public function listUser(){
 		return $this->pdo->query('SELECT * FROM users');
-	}	
+	}
 }

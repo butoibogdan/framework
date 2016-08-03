@@ -1,6 +1,8 @@
 <?php
 namespace framework;
 use framework\Framework as Framework;
+use framework\Request;
+
 
 class BaseController{
 	// Render un array intr-un anumit view

@@ -2,6 +2,7 @@
 namespace app\controllers;
 use \framework\BaseController as BaseController;
 use app\models\UserModel as UserModel;
+use framework\Request;
 
 class UserController extends BaseController{
 	// o proprietate privata care contine modelul
@@ -12,12 +13,13 @@ class UserController extends BaseController{
 		$this->_model = new UserModel;			
 	}
 
-	public function loginAction(){					
+	public function loginAction(){
+                $request=new Request();
 		if(!empty($_POST)){
-			// database check					
-			if($_POST['username'] == 'admin'){
-				header('Location: index.php');
-			}
+			// database check				
+//			if($_POST['username'] == 'admin'){
+//				header('Location: index.php');
+//			}
 		}
 		$this->render('loginForm', array());
 	}

@@ -10,6 +10,7 @@
  */
 
 namespace framework;
+use framework\Auth;
 
 class Framework {
 
@@ -73,7 +74,6 @@ class Framework {
      */
     private static function translateURL() {
         $translated = FALSE;
-        $controller = '';
         $action='';
         $url = parse_url($_SERVER['REQUEST_URI'])['path'];
         require APP_PATH.'/config/routes.php';
