@@ -7,7 +7,6 @@
  */
 
 namespace framework;
-
 use framework\Framework;
 
 /**
@@ -36,7 +35,7 @@ class Request {
                 }
             }
         }
-        return $array;
+        return (object) $array;
     }
 
 }

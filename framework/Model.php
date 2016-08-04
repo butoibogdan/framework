@@ -2,7 +2,7 @@
 namespace framework;
 use framework\Framework as Framework;
 
-class Model{	
+class Model {	
 	// database connection instance	- singleton
 	static protected $_pdo;	
 
@@ -26,5 +26,6 @@ class Model{
 		}else{
 			return self::$_pdo;
 		}				
-	}	
+	}
+       
 }

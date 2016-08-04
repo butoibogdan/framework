@@ -17,11 +17,10 @@ class Framework {
     public static $params;
 
     public static function init() {
-        session_start();
         // configurari generale si ale aplicatiei
+        session_start();
         include 'framework/config.php';
         self::$params = require APP_PATH . 'config' . DIRECTORY_SEPARATOR . 'main.php';
-
         self::autoLoadFiles();
         self::translateURL();
     }
@@ -75,6 +74,7 @@ class Framework {
     private static function translateURL() {
         $translated = FALSE;
         $action='';
+        $controller='';
         $url = parse_url($_SERVER['REQUEST_URI'])['path'];
         require APP_PATH.'/config/routes.php';
         foreach ($routes as $key => $route) {  

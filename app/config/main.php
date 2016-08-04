@@ -2,14 +2,20 @@
 
 // Configurari ce tin de aplicatie - e.g. Blog
 return array(
-	'charset' => 'utf-8',
-	'theme' => 'blog_theme',	
-	'database' => array(
-		'name' => 'frameworks',
-		'username' => 'root',
-		'password' => '',
-		'options' => array(
-				PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-			),
-		),
+    'charset' => 'utf-8',
+    'theme' => 'blog_theme',
+    'database' => array(
+        'name' => 'frameworks',
+        'username' => 'root',
+        'password' => '',
+        'options' => array(
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        ),
+    ),
+    'users' => [
+        'user_table' => 'users',
+        'user_column' => 'users',
+        'password_column' => 'password',
+        'credetials' => 'credentials'
+    ],
 );
