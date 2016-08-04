@@ -23,12 +23,6 @@ class Auth extends Model {
         $this->pdo = parent::$_pdo;
     }
 
-    public function __get($name) {
-
-        if (isset($this->username) && isset($this->password)) {
-            return;
-        }
-    }
 
     public function isauth() {
         $request = new Request();
