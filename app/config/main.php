@@ -18,4 +18,6 @@ return array(
         'password_column' => 'password',
         'credetials' => 'credentials'
     ],
+    // environment - dev|prod
+    'env' => 'dev',
 );

@@ -10,6 +10,7 @@
  */
 
 namespace framework;
+
 use framework\Auth;
 
 class Framework {
@@ -22,6 +23,7 @@ class Framework {
         include 'framework/config.php';
         self::$params = require APP_PATH . 'config' . DIRECTORY_SEPARATOR . 'main.php';
         self::autoLoadFiles();
+        ErrorManager::setErrorHandlers();
         self::translateURL();
     }
 
@@ -73,12 +75,12 @@ class Framework {
      */
     private static function translateURL() {
         $translated = FALSE;
-        $action='';
-        $controller='';
+        $action = '';
+        $controller = '';
         $url = parse_url($_SERVER['REQUEST_URI'])['path'];
-        require APP_PATH.'/config/routes.php';
-        foreach ($routes as $key => $route) {  
-            if ($storage.'/'.$key == $url) {
+        require APP_PATH . '/config/routes.php';
+        foreach ($routes as $key => $route) {
+            if ($storage . '/' . $key == $url) {
                 $array = explode('@', $route);
                 $controller = 'app\\controllers\\' . ucfirst($array[0]) . 'Controller';
                 $action = $array[1] . 'Action';
@@ -96,6 +98,11 @@ class Framework {
             $instance = new \app\controllers\IndexController;
             $instance->indexAction();
         }
+    }
+
+    public static function redirect($url) {
+        header("Location: $url");
+        exit();
     }
 
 }

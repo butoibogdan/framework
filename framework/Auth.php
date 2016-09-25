@@ -31,8 +31,10 @@ class Auth extends Model {
         $this->user = Framework::$params['users']['user_column'];
         $this->pass = Framework::$params['users']['password_column'];
         
-        $this->username = $request->method()->{$this->user};
-        $this->password = $request->method()->{$this->pass};
+        $rq=$request->method();
+        
+        $this->username = $rq[$this->user];
+        $this->password = $rq[$this->pass];
         
         $query = $this->pdo->prepare("SELECT * FROM {$this->table} WHERE ({$this->user} = :user AND {$this->pass} = :pass)");
         $query->execute([':user' => $this->username, ':pass' => $this->password]);

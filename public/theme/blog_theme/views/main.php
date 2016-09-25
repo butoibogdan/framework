@@ -4,19 +4,27 @@
 <title>Bloggers Green</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link href= "<?php echo 'public/theme/'.\framework\Framework::$params['theme']; ?>/css/default.css" rel="stylesheet" type="text/css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 </head>
 <body>
 <div id="content">
   <div>
     <h1>Bloggersgreen</h1>
     <h2>Free CSS Template</h2>
+    <h1><?php echo \framework\FlashMessages::getMess('flashmessage'); ?>  </h1>
   </div>
   <div id="menu">
     <ul>
       <li><a href="index.php">Home</a></li>
       <li><a href="index.php?c=index&amp;a=page&amp;view=despre">About us</a></li> 
       <li><a href="userlist">Users</a></li>      
-      <li><a href="login">Login</a></li>      
+      <?php if(isset($_SESSION[md5(KEY)])){ ?>
+      <li><a href="adduser">Add Users</a></li>
+      <li><a href="addcomment">Add Comment</a></li>
+      <li><a href="logout">Logout</a></li>
+      <?php } else { ?> 
+      <li><a href="login">Login</a></li>
+      <?php } ?>
     </ul>
   </div>
   <div id="left">

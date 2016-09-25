@@ -84,5 +84,9 @@ class Session {
         $encrypted_data = openssl_encrypt($data, 'AES-256-CBC', $key, true, $iv);
         return base64_encode($salt . $encrypted_data);
     }
+    
+    public static function destroy(){
+        return session_destroy();
+    }
 
 }

@@ -7,7 +7,7 @@ use framework\Request;
 class BaseController{
 	// Render un array intr-un anumit view
 	public function render($view, $vars = array()){
-		$view_file = VIEWS_PATH.$this->getViewFolder().DIRECTORY_SEPARATOR.$view.'.php';	
+		$view_file = VIEWS_PATH.$this->getViewFolder().DIRECTORY_SEPARATOR.$view.'.php';
 		if(is_file($view_file)){
 			// returneaza continutul unui fisier intr-o variabila
 			ob_start();
@@ -19,6 +19,20 @@ class BaseController{
 		}else{			
 			$this->render('pages/404');
 		}		
+	}
+        
+        public function renderPartial($view, $vars = array()){
+		$view_file = VIEWS_PATH.$this->getViewFolder().DIRECTORY_SEPARATOR.$view.'.php';	
+		if(is_file($view_file)){
+			// returneaza continutul unui fisier intr-o variabila
+			ob_start();
+	        ob_implicit_flush(false);
+	        require $view_file;
+	        $content = ob_get_clean();
+			echo $content;
+		}else{			
+			$this->renderPartial('pages/404');
+		}
 	}
 
 	/**
@@ -39,4 +53,8 @@ class BaseController{
 	private function loadTheme($content){				
 		require THEME_PATH.Framework::$params['theme'].DIRECTORY_SEPARATOR.'views'.DIRECTORY_SEPARATOR.'main.php';
 	}
+        
+        protected function redirect($url){
+		Framework::redirect($url);
+	}	
 }

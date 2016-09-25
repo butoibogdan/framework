@@ -35,7 +35,7 @@ class Request {
                 }
             }
         }
-        return (object) $array;
+        return $array;
     }
 
 }
