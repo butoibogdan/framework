@@ -12,11 +12,17 @@ if (isset($_SESSION[md5(KEY)])) {
         'logout' => 'User@logout',
         'delete' => 'User@delete',
         'update' => 'User@edit',
-        'addcomment'=>'Post@addcomment'
+        'addcomment'=>'Post@addcomment',
+        'comentarii'=>'Post@list',
+        'index'=>'Index@index',
+        'about'=>'Index@page'
     ];
 } else {
     $routes = [
-        'login' => 'User@login'
+        'login' => 'User@login',
+        'comentarii'=>'Post@list',
+        'index'=>'Index@index',
+        'about'=>'Index@page'
     ];
 }
  

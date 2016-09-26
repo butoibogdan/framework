@@ -32,5 +32,10 @@ class PostController extends BaseController {
         }
         $this->render('comment', $comentarii);
     }
+    
+    public function listAction(){
+       $comentarii=Comentarii::allComments();
+       $this->renderPartial('list', $comentarii);
+    }
 
 }

@@ -21,4 +21,8 @@ class CommentModel extends Model {
         return Model::select('cooments', 'user_id', $id);
     }
 
+    public static function allComments() {
+        return Model::all('cooments');
+    }
+
 }
