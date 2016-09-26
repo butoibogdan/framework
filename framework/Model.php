@@ -128,7 +128,7 @@ class Model {
         $sql->execute([':id' => $id]);
         $result = $sql->fetchAll();
         if (empty($result)) {
-            throw new \Exception('ID inexistent');
+            return null;
         }
         return $result;
     }

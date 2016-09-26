@@ -18,7 +18,7 @@ class CommentModel extends Model {
     }
 
     public static function commentsByUser($id) {
-        return Model::select('cooments', 'user_id', $id);
+        return @Model::select('cooments', 'user_id', $id);
     }
 
     public static function allComments() {
