@@ -5,6 +5,7 @@ return array(
     'charset' => 'utf-8',
     'theme' => 'blog_theme',
     'database' => array(
+        'host'=>'localhost',
         'name' => 'frameworks',
         'username' => 'root',
         'password' => '',

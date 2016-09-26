@@ -22,12 +22,12 @@ class Model {
      */
     protected function connectDB() {
         if (is_null(self::$_pdo)) {
+            $host= Framework::$params['database']['host'];
             $database = Framework::$params['database']['name'];
             $username = Framework::$params['database']['username'];
             $password = Framework::$params['database']['password'];
             $options = Framework::$params['database']['options'];
-
-            self::$_pdo = new PDO("mysql:dbname={$database};host=localhost;port=3306;charset=utf8", $username, $password, $options);
+            self::$_pdo = new PDO("mysql:dbname={$database};host=$host;port=3306;charset=utf8", $username, $password, $options);
         } else {
             return self::$_pdo;
         }
