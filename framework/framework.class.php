@@ -89,7 +89,7 @@ class Framework {
                 }
             }
         } else {
-            self::redirect('/');
+            echo "Eroare 404";
         }
         if (class_exists($controller)) {
             $instance = new $controller;
