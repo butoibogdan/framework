@@ -80,7 +80,7 @@ class Framework {
         $url = parse_url($_SERVER['REQUEST_URI'])['path'];
         require APP_PATH . '/config/routes.php';
         $str=str_replace($storage, '|', $url);
-        var_dump(str_replace('|/', '', $str));
+        //var_dump(str_replace('|/', '', $str));
         if (array_key_exists(str_replace('|/', '', str_replace($storage, '|', $url)), $routes)) {
             foreach ($routes as $key => $route) {
                 if ($storage . '/' . $key === $url) {
