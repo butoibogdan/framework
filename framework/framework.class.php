@@ -79,8 +79,7 @@ class Framework {
         $controller = '';
         $url = parse_url($_SERVER['REQUEST_URI'])['path'];
         require APP_PATH . '/config/routes.php';
-        $str=str_replace($storage, '|', $url);
-        //var_dump(str_replace('|/', '', $str));
+        $str = str_replace($storage, '|', $url);
         if (array_key_exists(str_replace('|/', '', str_replace($storage, '|', $url)), $routes)) {
             foreach ($routes as $key => $route) {
                 if ($storage . '/' . $key === $url) {
@@ -90,8 +89,6 @@ class Framework {
                     $action = $array[1] . 'Action';
                 }
             }
-        } else {
-            echo "Eroare 404";
         }
         if (class_exists($controller)) {
             $instance = new $controller;
