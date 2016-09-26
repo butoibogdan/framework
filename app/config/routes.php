@@ -14,6 +14,7 @@ if (isset($_SESSION[md5(KEY)])) {
         'update' => 'User@edit',
         'addcomment'=>'Post@addcomment',
         'comentarii'=>'Post@list',
+        ''=>'Index@index',
         'index'=>'Index@index',
         'about'=>'Index@page'
     ];
@@ -21,6 +22,7 @@ if (isset($_SESSION[md5(KEY)])) {
     $routes = [
         'login' => 'User@login',
         'comentarii'=>'Post@list',
+        ''=>'Index@index',
         'index'=>'Index@index',
         'about'=>'Index@page'
     ];

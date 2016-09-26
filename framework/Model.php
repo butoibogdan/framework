@@ -73,7 +73,6 @@ class Model {
 
     // Validate
     public static function validate($post, $rules = [], $table = null, $column = null) {
-        // regulile se vor separa prin | iar subregulile prin :
         $validate = true;
         foreach ($rules as $rule) {
             if (strpos($rule, ':')) {
